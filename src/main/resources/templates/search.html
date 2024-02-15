@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <title>Поиск оборудования</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+        <div class="content">
+            <div class="search_options">
+                <h3>Выполнить поиск оборудования по</h3>
+                <select class="search_select">
+                    <option>Инвентарному номеру</option>
+                    <option>Акту ввода в эксплуатацию</option>
+                    <option>Акту вывода из эксплуатации</option>
+                </select>
+            </div>
+            <form action="/search" method="post">
+            <div class="search_field">
+
+                    <input type="number" name="number" placeholder="Строка поиска">
+                    <button type="submit">Найти</button>
+
+
+            </div>
+            </form>
+            <p style="margin-left: 10px;">Результаты поиска: <a th:href="@{/equipment(id=${equipmentId})}" th:text="${message}">Ссылка</a></p>
+            
+            
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymealeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="/css/equipment-info-style.css">
+    <title>Оборудование</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+        <div class="content">
+            <div class="form-class">
+                <form action="/equipment/edit" method="post">
+                    <div class="number-name">
+                        <div class="number-name-labels">
+                            <label for="number">Инвентарный номер</label>
+                            <label for="name">Наименование</label>
+                        </div>
+                        <div class="number-name-inputs">
+                            <input type="number" name="inventoryNumber" id="number" th:value="${inventoryNumber}">
+                            <input type="text" name="name" id="name" th:value="${name}">
+                        </div>
+                    </div>
+
+                    <div class="wear-audience">
+                        <div class="wear">
+                            <div class="wear-labels">
+                                <label for="wear-rate">Норма износа, %</label>
+                                <label for="general-wear">Общий износ, %</label>
+                            </div>
+                            <div class="wear-inputs">
+                                <input type="number" name="wearRate" id="wear-rate" th:value="${wearRate}">
+                                <input type="number" name="generalWear" id="general-wear" th:value="${generalWear}">
+                            </div>
+                        </div>
+
+                        <div class="audience">
+                            <div class="audience-labels">
+                                <label for="building">Корпус №</label>
+                                <label for="audience">Аудитория №</label>
+                            </div>
+                            <div class="audience-inputs">
+                                <input type="number" name="buildingNumber" id="building" th:value="${buildingNumber}">
+                                <input type="text" name="audienceNumber" id="audience" th:value="${audienceNumber}">
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="commissioning-p">
+                        <p class="commiss-p">Ввод в эксплуатацию</p>
+                        <p class="decommiss-p">Вывод из эксплуатации</p>
+                    </div>
+
+                    <div class="commissioning-info">
+                        
+                        <div class="commissioning">
+                            
+                            <div class="commissioning-labels">
+                                <label for="commissioning-date">Дата</label>
+                                <label for="commissioning-act">Номер акта</label>
+                            </div>
+                            <div class="commissioning-inputs">
+                                <input type="date" name="commissioningDate" id="commissioning-date" th:value="${commissioningDate}">
+                                <input type="number" name="commissioningActNumber" id="commissioning-act" th:value="${commissioningActNumber}">
+                            </div>
+                        </div>
+
+                        <div class="decommissioning">
+                            
+                            <div class="decommissioning-labels">
+                                <label for="decommissioning-date">Дата</label>
+                                <label for="decommissioning-act">Номер акта</label>
+                            </div>
+                            <div class="decommissioning-inputs">
+                                <input type="date" name="decommissioningDate" id="decommissioning-date" th:value="${decommissioningDate}">
+                                <input type="number" name="decommissioningActNumber" id="decommissioning-act" th:value="${decommissioningActNumber}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cost-categories-responsible">
+                        <div class="cost">
+                            <div class="cost-labels">
+                                <label for="initial-cost">Начальная стоимость, руб</label>
+                                <label for="residual-cost">Текущая стоимость, руб</label>
+                            </div>
+                            <div class="cost-inputs">
+                                <input type="number" name="initialCost" id="initial-cost" th:value="${initialCost}">
+                                <input type="number" name="residualCost" id="residual-cost" th:value="${residualCost}">
+                            </div>
+                        </div>
+
+                        <div class="categories-responsible">
+                            <div class="categories">
+                                <select id="categoriesSelect">
+                                    <option th:each="c: ${categories}"
+                                            th:text="${c.name}" th:value="${c.id}">Категория 1</option>
+                                </select>
+                                >
+                                <select name="subcategoryId" id="subcategoriesSelect">
+                                    <option th:each="s: ${subcategories}"
+                                            th:text="${s.name}" th:value="${s.id}">Подкатегория 1</option>
+                                </select>
+                            </div>
+                            <div class="responsible">
+                                <span>Ответственный: </span>
+                                <select name="responsibleId" id="responsibleSelect">
+                                    <option th:each="r: ${responsibleList}"
+                                            th:text="${r.fullName}" th:value="${r.id}">Ответственный 1</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="description-buttons">
+                        <div class="description">
+                            <p>Описание</p>
+                            <textarea th:text="${description}" name="description" disabled="true"></textarea>
+                        </div>
+                        <div class="buttons">
+                            <a th:href="@{/history(id=${equipmentId})}">История взятий в пользование</a>
+                            <a onclick="unlock()">Разблокировать поля</a>
+                            <input type="hidden" name="equipmentId" th:value="${equipmentId}">
+                            <button type="submit">Изменить информацию</button>
+                            <!-- <input type="submit">Изменить информацию</input> -->
+
+                            <a th:href="@{/equipment/delete(id=${equipmentId})}">Удалить информацию</a>
+                        </div>
+                    </div>
+                    
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function unlock() {
+            var button = document.getElementsByClassName("editButton")[0];
+            button.type = 'submit';
+            button.value = 'Сохранить информацию';
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].disabled = false;
+            }
+            var selects = document.getElementsByTagName("select");
+            for (var i = 0; i < selects.length; i++) {
+                selects[i].disabled = false;
+            }
+            document.getElementsByTagName("textarea")[0].disabled = false;
+        }
+    </script>
+
+    <script async="false" defer>
+        var inputs = document.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
+        }
+
+        var selects = document.getElementsByTagName("select");
+        for (var i = 0; i < selects.length; i++) {
+            selects[i].disabled = true;
+        }
+
+        document.getElementsByClassName("editButton")[0].disabled = false;
+    </script>
+
+    <script th:inline="javascript" async="false" defer>
+        var categoriesSelect = document.getElementById("categoriesSelect");
+        var subcategoriesSelect = document.getElementById("subcategoriesSelect");
+        var responsibleSelect = document.getElementById("responsibleSelect");
+
+        for (var i = 0; i < categoriesSelect.options.length; i++) {
+            var categoryId = [[${categoryId}]];
+            if (categoriesSelect.options[i].value == categoryId) {
+                categoriesSelect.selectedIndex = i;
+                break;
+            }
+        }
+
+        for (var i = 0; i < subcategoriesSelect.options.length; i++) {
+            var subcategoryId = [[${subcategoryId}]];
+            if (subcategoriesSelect.options[i].value == subcategoryId) {
+                subcategoriesSelect.selectedIndex = i;
+                break;
+            }
+        }
+
+        for (var i = 0; i < responsibleSelect.options.length; i++) {
+            var responsibleId = [[${responsibleId}]];
+            if (responsibleSelect.options[i].value == responsibleId) {
+                responsibleSelect.selectedIndex = i;
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

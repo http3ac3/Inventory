@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content {
+    margin-left: 20%;
+}
+
+.info_table {
+    margin: 10px;
+}
+
+.up {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.sort {
+    margin-left: 50px;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort select {
+    margin-top: 10px;
+    padding: 5px 20px;
+    margin-left: 10px;
+	border-radius: 5px; 
+    font-size: .6em;
+}
+
+.up button {
+    margin: 10px 10px 0px 10px;
+    padding: 5px 45px;
+    background: rgb(121, 79, 8);
+	color: #ffffff;
+    border: none;
+	border-radius: 5px; 
+    cursor: pointer;
+}
+
+.up h3 {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: .8em;
+}

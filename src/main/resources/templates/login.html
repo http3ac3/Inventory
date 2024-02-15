@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/login_style.css">
+    <title>Авторизация</title>
+</head>
+<body>
+    <h1>Система учета материально-технического обеспечения университета</h1>
+    <div class="main">
+        <div class="login_form">
+            <form action="/" method="post">
+                <div class="field">
+                    <label for="username">Логин</label>
+                    <input id="username" placeholder="Имя пользователя" type="text" name="username"/> <br>
+                </div>
+                <div class="field">
+                    <label for="password">Пароль</label>
+                    <input id="password" placeholder="Пароль" type="password" name="password"/> <br>
+                </div>
+                
+                <button type="submit">Войти</button><br>
+                <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" th:text="${message}"></span>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

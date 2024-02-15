@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/equipment-rented-now.css">
+    <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/table.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <title>Взятое оборудование</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+
+        <div class="content">
+            <div class="up">
+                <div class="sort" style="justify-content: right;">
+                    <h3>Сортировка по</h3>
+                    <select>
+                        <option>Алфавиту</option>
+                        <option>По инвентарному номеру</option>
+                    </select>
+                
+                </div>  
+            
+                <button>Фильтры</button>
+            </div>
+
+            <div class="info_table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Номер взятия</th>
+                            <th scope="col">Наименование</th>
+                            <th scope="col">Ответственный</th>
+                            <th scope="col">Дата и время взятия</th>
+                            <th scope="col">Аудитория</th>
+                        </tr>
+                    </thead>
+                    <tr th:each="rent: ${rents}">
+                        <td ><a th:href="@{/rent/info(rentId=${rent.id})}" th:text="${rent.id}"></a></td>
+                        <td th:text="${rent.equipment.name}">Компуктер леново</td>
+                        <td><a th:href="@{/responsible/info(id=${rent.responsible.id})}" th:text="${rent.responsible.fullName}">Лаврухин А.А.</a></td>
+                        <td th:text="${rent.startRentDateTime}">12.12.2023 15:43</td>
+                        <td th:text="${rent.audience.fullAudience}">214а-3</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            
+            <a href="#"><</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">7</a>
+            <a href="#">></a>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+button {
+    background: rgb(121, 79, 8);
+	color: #ffffff;
+    border: none;
+	border-radius: 5px;
+	padding: 10px 30px;
+	cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+input {
+    margin-top:10px;
+    padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.wrapper {
+    position: absolute;
+    padding: 20px;
+    width: 25% ;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+header button {
+    margin-left: auto;
+}
+
+.profile-img {
+    height: 40px;
+}
+
+.profile-img img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.content, form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.equipment {
+    display: flex;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+} 
+
+
+.labels label {
+    margin-top:7.5px;
+    padding: 10px;
+}
+
+p {
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+.audience {
+    display: flex;
+    margin-left: 30px;
+}
+
+.audience input {
+    width: 30%;
+}
+
+form button {
+    padding: 10px 50px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}

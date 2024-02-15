@@ -1,0 +1,60 @@
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+
+.main {
+    margin-left: 20%; /* Same as the width of the sidebar */
+    width: 80%;
+    padding-bottom: 50px;
+}
+
+.up {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.sort {
+    margin-left: 50px;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort select {
+    padding: 5px 20px;
+    margin-left: 10px;
+	border-radius: 5px; 
+    font-size: .6em;
+}
+
+.up button {
+    margin: 10px 10px 0px 10px;
+    padding: 5px 45px;
+    background: rgb(121, 79, 8);
+	color: #ffffff;
+    border: none;
+	border-radius: 5px; 
+    cursor: pointer;
+}
+
+.up h3 {
+    margin-left: 10px;
+    font-size: .8em;
+}
+
+.info_table {
+    margin-top: 10px;
+}

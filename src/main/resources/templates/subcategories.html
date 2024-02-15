@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="css/categories.css">
+    <title>Подкатегории</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+        <div class="content">
+            <a th:each="s: ${subcategories}" th:href="@{/main(subcategoryId=${s.id})}">
+                <div class="category">
+                    <div class="item">
+                        <img src="https://abrakadabra.fun/uploads/posts/2022-02/1644894932_2-abrakadabra-fun-p-parta-na-zelenom-fone-3.jpg">
+                        <p th:text="${s.name}">Наименование подкатегории</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

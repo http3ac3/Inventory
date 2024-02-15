@@ -1,0 +1,64 @@
+.field {
+    clear: both; 
+    text-align: right;
+}
+
+button {
+    background: rgb(121, 79, 8);
+	color: #ffffff;
+    border: none;
+	border-radius: 5px;
+	padding: 10px 30px;
+	cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+    float:left;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login_form {
+    float: left; 
+    border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10%;
+}
+
+span {
+    margin-bottom: 10px;
+}

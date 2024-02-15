@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новое оборудование</title>
+    <link rel="stylesheet" type="text/css" href="/css/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="/css/equipment-new-style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+        <div class="content">
+            <div class="form-class">
+                <form action="/equipment/new" method="post">
+                    <div class="name-number">
+                        <div class="name-number-labels">
+                            <label for="number">Инвентарный номер</label>
+                            <label for="name">Наименование</label>
+                        </div>
+                        <div class="name-number-inputs">
+                            <input id="number" type="text" name="inventoryNumber">
+                            <input id="name" type="text" name="name">
+                        </div>
+                    </div>
+                    <div class="wear-audience">
+                        <div class="wear">
+                            <div class="wear-field">
+                                <label for="wear">Норма износа</label>   
+                                <span><input type="text" name="wearRate" id="wear">%</span>
+                            </div>
+                            
+                            <div class="commissioning-p">
+                                <p>Ввод в эксплуатацию</p>
+                            </div>
+                        </div>
+                        <div class="audience">
+                            <div class="audience-labels">
+                                <label for="building">Корпус №</label>
+                                <label for="audience">Аудитория №</label>
+                            </div>
+                            <div class="audience-inputs">
+                                <input type="text" name="buildingNumber" id="building">
+                                <input type="text" name="audienceNumber" id="audience">
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="main-info">
+                        <div class="commissioning-info">
+                            <div class="commissioning-labels">
+                                <label for="date">Дата</label>
+                                <label for="act-number">Номер акта</label>
+                            </div>
+                            <div class="commissioning-inputs">
+                                <input type="date" name="commissioningDate" id="date">
+                                <input type="number" name="commissioningActNumber" id="act-number">
+                            </div>
+                        </div>
+
+                        <div class="category-responsible">
+                            <div class="category">
+                                <select>
+                                    <option th:each="c: ${categories}"
+                                            th:text="${c.name}" th:value="${c.id}">Категория 1</option>
+                                </select> 
+                                >
+                                <select name="subcategoryId">
+                                    <option th:each="s: ${subcategories}"
+                                            th:text="${s.name}" th:value="${s.id}">Подкатегория 1</option>
+                                </select>
+                            </div>
+                            <div class="responsible">
+                                <span>Ответственный: </span>
+                                <select name="responsibleId">
+                                    <option th:each="r: ${responsibleList}"
+                                    th:text="${r.fullName}" th:value="${r.id}">Ответственный 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="initial-cost-field">
+                        <label for="initial-cost">Начальная стоимость, руб</label>
+                        <input type="number" name="initialCost" id="initial-cost">
+                    </div>
+                    <div class="description">
+                        <p>Описание</p>
+                        <textarea placeholder="Поле описания" name="description"></textarea>
+                    </div>
+                
+                    <button type="submit">Добавить новое оборудование</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

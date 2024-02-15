@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content {
+    margin-left: 20%;
+    width: 80%;
+}
+
+button {
+    background: rgb(121, 79, 8);
+	color: #ffffff;
+    border: none;
+	border-radius: 5px;
+	padding: 10px 30px;
+	cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+input {
+    margin-top:10px;
+    padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select {
+    border-radius: 5px; 
+    padding:  10px 20px;
+}
+
+.form-class {
+    width: 100%;
+}
+
+.name-number {
+    display: flex;
+    width: 100%;
+}
+
+.name-number-labels {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.name-number-labels label {
+    margin-top: 7.5px;
+    padding: 10px;
+}
+
+.name-number-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.name-number-inputs input {
+    width: 100%;
+}
+
+.wear-audience {display: flex;}
+
+.wear { display: flex; flex-direction: column;}
+.wear-field { display: flex; }
+.wear-field label { padding: 10px; margin-top: 7.5px;}
+.wear-field input { margin-left: 50px;}
+.commissioning-p {
+    margin: 20px 0px 0px 10px;
+}
+
+.audience {
+    display: flex; 
+    margin-left: auto; 
+    margin-right: 4%;
+}
+.audience-labels, .audience-inputs {display: flex; flex-direction: column;}
+.audience-labels label { margin-top: 7.5px; padding: 10px; }
+
+
+.main-info { display: flex;}
+.commissioning-info {display: flex;}
+.commissioning-labels, .commissioning-inputs {display: flex; flex-direction: column;}
+.commissioning-labels label { padding: 10px; margin-top: 7.5px; }
+.commissioning-inputs { width: 280px; }
+
+.category-responsible {margin-left: auto;}
+.category {margin-top: 10px; margin-right: 50px;}
+.responsible {margin-top: 10px; margin-left: 28px;}
+
+.initial-cost-field {
+    margin-left: 10px;
+}
+
+.description {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.description textarea {
+    width: 96%;
+    height: 285px;
+}
+
+button {
+    margin-left: 40%;
+}

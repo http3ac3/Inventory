@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main_style.css">
+    <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/table.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <title>Главная страница</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+    
+        <div class="main">
+            <div class="up">
+                <h3>Вся информация об оборудовании</h3>
+                <div class="sort">
+                    <h3>Сортировка по</h3>
+                    <select>
+                        <option>Алфавиту</option>
+                        <option>По инвентарному номеру</option>
+                    </select>
+                </div>
+                
+                <button>Фильтры</button>
+            </div>
+            
+            <div class="info_table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Инвентарный №</th>
+                            <th scope="col">Наименование</th>
+                            <th scope="col">Стоимость, руб</th>
+                            <th scope="col">Износ, %</th>
+                            <th scope="col">Ответственный, ФИО</th>
+                            <th scope="col">Аудитория</th>
+                        </tr>
+                        
+                    </thead>
+                    <tr th:each="e: ${equipment}">
+                        <td><a th:href="@{/equipment(id=${e.id})}" th:text="${e.inventoryNumber}">11223344556677</a></td>
+                        <td th:text="${e.name}">Компуктер</td>
+                        <td th:text="${e.initialCost}">56000</td>
+                        <td th:text="${e.generalWear}">23,4</td>
+                        <td><a th:href="@{/responsible/info(id=${e.responsible.id})}" th:text="${e.responsible.fullName}">Лаврухин А.А.</a></td>
+                        <td th:text="${e.audience.fullAudience}">213-4</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    
+        <div class="footer">
+            
+            <a href="#"><</a>
+            <a href="#">1</a>
+            <a href="#">></a>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

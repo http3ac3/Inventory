@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Взятие № оборудование</title>
+    <link rel="stylesheet" type="text/css" href="/css/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="/css/rent-info-style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+        <div class="content">
+            <div class="center_form">
+                <div class="form">
+                    <div class="labels">
+                        <span>Взятие №: <span th:text="${rentId}"></span></span>
+                        <span>Ответственный</span>
+                        <label for="start_rent_datetime">Дата и время взятия</label>
+                        <label for="end_rent_datetime">Дата и время возврата</label>
+                    </div>
+
+                    <div class="inputs">
+                        <a th:href="@{/equipment(id=${equipmentId})}" th:text="${equipmentName}">Наименование оборудования</a>
+                        <a th:href="@{/responsible/info(id=${responsibleId})}" th:text="${responsibleFullName}">Иванов И.И.</a>
+                        <input id="start_rent_datetime" type="datetime-local" th:value="${startRentDateTime}">
+                        <input id="end_rent_datetime" type="datetime-local" th:value="${endRentDateTime}">
+                    </div>
+
+                    <div class="audience">
+                        <div class="field">
+                            <label for="building">Корпус №</label>
+                            <input id="building" type="text" th:value="${buildingNumber}">
+                        </div>
+                        
+                        <div class="field">
+                            <label for="audience">Аудитория №</label>
+                            <input id="audience" type="number" th:value="${audienceNumber}">
+                        </div>
+                        
+                    </div>
+                    <button>Назад</button>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</body>
+</html>

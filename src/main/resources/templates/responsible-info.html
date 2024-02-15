@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация об ответственном</title>
+    <link rel="stylesheet" type="text/css" href="/css/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="/css/responsible-info-style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav">
+            <a href="/main">Таблица оборудования МТО</a>
+            <a href="/categories">Категории</a>
+            <a href="/search">Поиск оборудования</a>
+            <a href="/equipment/new">Добавить оборудование</a>
+            <a href="/export">Экспорт информации</a>
+            <a href="/rented-now">Взятое оборудование</a>
+        </div>
+
+        <div class="content">
+            <div class="center_form">
+                <div class="form">
+                    <div class="labels">
+                        <label for="last_name">Фамилия</label>
+                        <label for="first_name">Имя</label>
+                        <label for="patronymic">Отчество</label>
+                        <label for="phone_number">Номер телефона</label>
+                        <label for="position">Должность</label>
+                    </div>
+                    <div class="inputs">
+                        <input id="last_name" type="text" th:value="${lastName}">
+                        <input id="first_name" type="text" th:value="${firstName}">
+                        <input id="patronymic" type="text" th:value="${patronymic}">
+                        <input id="phone_number" type="text" th:value="${phoneNumber}">
+                        <input id="position" type="text" th:value="${position}">
+                    </div>
+                    <button>Назад</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

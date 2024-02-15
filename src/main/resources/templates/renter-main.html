@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Использование оборудования</title>
+    <link rel="stylesheet" type="text/css" href="/css/renter-main-style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="profile-img">
+                <img src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Profile01-RoundedWhite-1024.png">
+            </div>
+                <span th:text="${responsibleFullName}">Иванов И.И.</span>
+                <form action="/rented" method="get">
+                    <input type="hidden" name="responsibleId" th:value="${responsibleId}">
+                    <button type="submit">Текущее оборудование</button>
+                </form>
+
+        </header>
+        <div class="content">
+            <p>Чтобы взять оборудование</p>
+            <button>Сканируйте QR-код</button>
+            <p class="or-paragraph">или</p>
+            <p>Введите его инвентарный номер в поле ниже</p>
+            <form action="/rent/search" method="post">
+                <input type="hidden" name="responsibleId" th:value="${responsibleId}">
+                <input type="number" placeholder="Инвентарный номер" name="inventoryNumber"><br>
+                <button type="submit">Найти оборудование</button>
+                <span th:text="${message}"></span>
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>

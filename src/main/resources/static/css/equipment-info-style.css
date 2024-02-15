@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content {
+    margin-left: 20%;
+}
+
+label {
+    margin-top: 7.5px; 
+    padding: 10px;
+}
+
+button {
+    background: rgb(121, 79, 8);
+	color: #ffffff;
+    border: none;
+	border-radius: 5px;
+	padding: 10px 30px;
+	cursor: pointer;
+}
+
+a {
+    margin-top: 10px;
+    display: block;
+    width: width:100%;
+    height: 25px;
+    background: rgb(121, 79, 8);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: #ffffff;
+    line-height: 25px;
+}
+
+input {
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+select {
+    padding: 7.5px 20px;
+    margin-left: 10px;
+	border-radius: 5px; 
+    font-size: 1em;
+}
+
+
+.form-class, form {width: 100%;}
+.number-name { display: flex; width: 100%; }
+.number-name-labels, .number-name-inputs {display: flex; flex-direction: column;}
+.number-name-inputs {width: 80%;}
+.number-name-inputs input {width: 100%;}
+
+
+.wear-audience {display: flex; width: 100%;}
+.wear {display: flex;}
+.wear-labels, .wear-inputs {display: flex; flex-direction: column;}
+.wear-inputs { margin-left: 30px;}
+
+.audience { display: flex; margin-left: auto; margin-right: 30px;}
+.audience-labels, .audience-inputs {display: flex; flex-direction: column;}
+
+.commissioning-p {display: flex; margin-top: 20px;}
+.commiss-p {margin-left: 10px}
+.decommiss-p {margin-left: auto; margin-right: 150px;}
+
+.commissioning-info {display: flex;}
+.commissioning {display: flex;}
+.commissioning-labels, .commissioning-inputs {display: flex; flex-direction: column;}
+
+.decommissioning {display: flex; margin-left: auto; margin-right: 27px;}
+.decommissioning-labels, .decommissioning-inputs {display: flex; flex-direction: column;}
+
+.cost-categories-responsible {display: flex;}
+.cost {display: flex;}
+.cost-labels, .cost-inputs {display: flex; flex-direction: column;}
+
+.categories-responsible { margin-left: auto; margin-top: 10px;}
+.categories {margin-right: 27px;}
+.responsible {margin-left: 50px; margin-top: 10px;}
+
+.description {width: 70%;}
+.description-buttons {display: flex; margin-left: 10px;}
+.buttons {
+    justify-content: flex-end;
+    margin-top: 30px;
+    display: flex; 
+    flex-direction: column; 
+    width: 40%; 
+}
+.buttons button {width:100%; margin-top: 30px; margin-bottom: 0;}
+.description textarea {width:98%; height: 275px;}

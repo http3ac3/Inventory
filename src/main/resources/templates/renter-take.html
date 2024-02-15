@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Использование оборудования</title>
+    <link rel="stylesheet" type="text/css" href="/css/renter-take-style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="profile-img">
+                <img src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Profile01-RoundedWhite-1024.png">
+            </div>
+                <span th:text="${responsibleFullName}">Иванов И.И.</span>
+            <div>
+                <form action="/rented" method="get">
+                    <input type="hidden" name="responsibleId" th:value="${responsibleId}">
+                    <button type="submit">Текущее оборудование</button>
+                </form>
+            </div>
+
+        </header>
+        <div class="content">
+            <p>Оборудование</p>
+            <div class="div-form">
+                <form action="/rent/new" method="post">
+                    <div class="equipment">
+                        <input type="hidden" name="responsibleId" id="" th:value="${responsibleId}">
+                        <div class="labels">
+                            <label for="name">Наименование</label>
+                            <label for="number">Инвентарный номер</label>
+                        </div>
+        
+                        <div class="inputs">
+                            <input id="name" type="text" th:value="${name}">
+                            <input name="inventoryNumber" id="number"
+                                   type="number" th:value="${inventoryNumber}">
+                        </div>
+                    </div>
+                    <br>
+                    <p>Укажите корпус и аудиторию</p>
+                    <div class="audience">
+                        <div class="field">
+                            <label for="building">Корпус</label>
+                            <input id="building" type="number" name="buildingNumber">
+                        </div>
+        
+                        <div class="field">
+                            <label for="audience">Аудитория</label>
+                            <input id="audience" type="number" name="audienceNumber">
+                        </div>
+                    </div>
+                    <button type="submit">Взять</button>
+                    <span th:text="${message}"></span>
+                </form>
+            </div>
+            
+        </div>
+                
+            
+
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текущее оборудование</title>
+    <link rel="stylesheet" href="/css/renter-now-style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="profile-img">
+                <img src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Profile01-RoundedWhite-1024.png">
+            </div>
+                <span th:text="${responsibleFullName}"></span>
+                <form action="/rent" method="get">
+                    <input type="hidden" name="responsibleId" th:value="${responsibleId}">
+                    <button type="submit">Взять новое оборудование</button>
+                </form>
+
+        </header>
+        <div class="content">
+            <div class="rent" th:each="rent: ${rents}">
+                <form action="/rented" method="post">
+                    <input type="hidden" th:value="${responsibleId}" name="responsibleId">
+                    <div class="rent-number">
+                        <label for="rent-id">Аренда №</label>
+                        <input id="rent-id" type="text" th:value="${rent.id}" name="rentId">
+                    </div>
+
+                    <div class="rent-info">
+                        <div class="labels">
+                            <label for="number">Инвентарный номер</label>
+                            <label for="name">Наименование</label>
+                            <label for="start-rent-time">Дата и время взятия</label>
+                        </div>
+    
+                        <div class="inputs">
+                            <input id="number" type="number" th:value="${rent.equipment.inventoryNumber}">
+                            <input id="name" type="text" th:value="${rent.equipment.name}">
+                            <input id="start-rent-time"
+                                   type="datetime-local" th:value="${rent.startRentDateTime}">
+                        </div>
+                    </div>
+                    
+
+                    <div class="audience">
+                        <div class="field">
+                            <label for="building">Корпус</label>
+                            <input id="building" type="number" th:value="${rent.audience.buildingNumber}">
+                        </div>
+        
+                        <div class="field">
+                            <label for="audience">Аудитория</label>
+                            <input id="audience" type="text" th:value="${rent.audience.audienceNumber}">
+                        </div>
+                    </div>
+
+                    <button type="submit">Вернуть</button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
